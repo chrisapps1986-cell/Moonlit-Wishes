@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,28 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+
+    // Start game using the scene manager
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+
+    // Exit the game when the Exit Button is pressed
+    public void ExitGame()
+    {
+
+// For exiting the game in the Unity Editor to test if the button is working
+#if UNITY_EDITOR
+    UnityEditor.EditorApplication.isPlaying = false;
+#else
+// Actual code to Quit the game when the Exit Button is pressed for when the game is an exe file
+        Application.Quit();
+#endif 
+    }
+
+
 
     public void GameOver()
     {
