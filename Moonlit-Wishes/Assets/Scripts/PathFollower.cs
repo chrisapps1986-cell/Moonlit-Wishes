@@ -3,35 +3,40 @@ using UnityEngine;
 public class PathFollower : MonoBehaviour
 {
     public Transform[] pathPoints;
-    public float speed = 3f;
-    public float reachDistance = 0.05f;
+    public float moveSpeed = 2f;
 
-    private int currentPointIndex = 0;
+    private int currentPoint = 0;
 
-    private void Update()
+    void Update()
     {
+       
         if (pathPoints == null || pathPoints.Length == 0)
         {
             return;
         }
 
-        Transform targetPoint = pathPoints[currentPointIndex];
+        if (pathPoints[currentPoint] == null)
+        {
+            return;
+        }
 
         transform.position = Vector3.MoveTowards(
             transform.position,
-            targetPoint.position,
-            speed * Time.deltaTime
+            pathPoints[currentPoint].position,
+            moveSpeed * Time.deltaTime
         );
 
-        float distanceToTarget = Vector3.Distance(transform.position, targetPoint.position);
-
-        if (distanceToTarget <= reachDistance)
+        if (Vector3.Distance(
+            transform.position,
+            pathPoints[currentPoint].position
+        ) < 0.1f)
         {
-            currentPointIndex++;
+            currentPoint++;
 
-            if (currentPointIndex >= pathPoints.Length)
+            if (currentPoint >= pathPoints.Length)
             {
                 Destroy(gameObject);
+                return;
             }
         }
     }

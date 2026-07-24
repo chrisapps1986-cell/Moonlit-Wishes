@@ -3,32 +3,42 @@ using UnityEngine;
 
 public class PathObjectSpawner : MonoBehaviour
 {
-    public GameObject objectPrefab;
+    public GameObject objectToSpawn;
     public Transform[] pathPoints;
     public float[] spawnDelays;
 
-    private int delayIndex = 0;
+    private int currentDelay = 0;
 
-    private void Start()
+    void Start()
     {
-        StartCoroutine(SpawnLoop());
+        StartCoroutine(SpawnObjects());
     }
 
-    private IEnumerator SpawnLoop()
+    IEnumerator SpawnObjects()
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnDelays[delayIndex]);
+            yield return new WaitForSeconds(spawnDelays[currentDelay]);
 
-            GameObject newObject = Instantiate(objectPrefab, pathPoints[0].position, Quaternion.identity);
+            GameObject newObject = Instantiate(
+                objectToSpawn,
+                pathPoints[0].position,
+                Quaternion.identity
+            );
 
-            newObject.GetComponent<PathFollower>().pathPoints = pathPoints;
+            PathFollower pathFollower =
+                newObject.GetComponent<PathFollower>();
 
-            delayIndex++;
-
-            if (delayIndex >= spawnDelays.Length)
+            if (pathFollower != null)
             {
-                delayIndex = 0;
+                pathFollower.pathPoints = pathPoints;
+            }
+
+            currentDelay++;
+           
+            if (currentDelay == spawnDelays.Length)
+            {
+                currentDelay = 0;
             }
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,10 +8,25 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public bool gameOver = false;
 
+    public TMP_Text scoreText;
+
+    private void Start()
+    {
+        UpdateScoreText();
+    }
+
     public void AddScore(int amount)
     {
         score += amount;
-        Debug.Log("Score: " + score);
+
+        UpdateScoreText();
+
+        Debug.Log("" + score);
+    }
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = "" + score;
     }
 
     public void LoseLife()
@@ -23,27 +39,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start game using the scene manager
     public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
 
-
-    // Exit the game when the Exit Button is pressed
     public void ExitGame()
     {
-
-// For exiting the game in the Unity Editor to test if the button is working
 #if UNITY_EDITOR
-    UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
-// Actual code to Quit the game when the Exit Button is pressed for when the game is an exe file
         Application.Quit();
-#endif 
+#endif
     }
-
-
 
     public void GameOver()
     {
