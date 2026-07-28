@@ -20,18 +20,21 @@ public class PathObjectSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnDelays[currentDelay]);
 
-            GameObject newObject = Instantiate(
-                objectToSpawn,
-                pathPoints[0].position,
-                Quaternion.identity
-            );
-
-            PathFollower pathFollower =
-                newObject.GetComponent<PathFollower>();
-
-            if (pathFollower != null)
+            if (pathPoints!= null && pathPoints.Length > 0)
             {
-                pathFollower.pathPoints = pathPoints;
+                GameObject newObject = Instantiate(
+                    objectToSpawn,
+                    pathPoints[0].position,
+                    Quaternion.identity
+                );
+
+                PathFollower pathFollower = newObject.GetComponent<PathFollower>();
+
+                if (pathFollower != null)
+                {
+                    pathFollower.SetupPath(pathPoints);
+                }
+                
             }
 
             currentDelay++;
@@ -40,6 +43,8 @@ public class PathObjectSpawner : MonoBehaviour
             {
                 currentDelay = 0;
             }
+
+        
         }
     }
 }

@@ -1061,6 +1061,7 @@ MonoBehaviour:
   score: 0
   lives: 3
   gameOver: 0
+  scoreText: {fileID: 0}
 --- !u!4 &1873661591
 Transform:
   m_ObjectHideFlags: 0
