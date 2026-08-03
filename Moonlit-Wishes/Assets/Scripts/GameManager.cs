@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text scoreText;
 
+    // A boolean to track when the player reaches a score of 100
+    private bool moonGoddessHeal = false;
+
       // We create a static instance of the game manager that can be accessed by any script from anywhere
     public static GameManager instance;
 
@@ -77,7 +80,25 @@ public class GameManager : MonoBehaviour
         UpdateScoreText();
 
         Debug.Log("" + score);
+
+        if (score >= 100 && !moonGoddessHeal)
+        {
+            FillHealth();
+        }
     }
+
+    private void FillHealth()
+    {
+        moonGoddessHeal = true;
+        currentLives = maxLives;
+
+        if (healthBar != null)
+        {
+            healthBar.UpdateMoonCakesUI(currentLives);
+        }
+        
+    }
+
 
     private void UpdateScoreText()
     {
