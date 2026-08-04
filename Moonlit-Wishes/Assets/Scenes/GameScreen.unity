@@ -417,6 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cd235fe4022c14eb73fc721cac840e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  bottomRabbit: {fileID: -4650205629826567076, guid: b5127e66bf6ccde4f89740a38400056a, type: 3}
+  topRabbit: {fileID: -5211260209183852988, guid: 287206fb749da5c4db25a06018e78bea, type: 3}
 --- !u!212 &510139115
 SpriteRenderer:
   serializedVersion: 3

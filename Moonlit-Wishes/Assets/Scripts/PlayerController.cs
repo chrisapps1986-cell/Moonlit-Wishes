@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2d;
     SpriteRenderer spriteRenderer;
 
+    [SerializeField] private Sprite bottomRabbit;
+    [SerializeField] private Sprite topRabbit;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,29 +23,36 @@ public class PlayerController : MonoBehaviour
         bc2d = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (bottomRabbit != null)
+        {
+            spriteRenderer.sprite = bottomRabbit;
+        }
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        // Get the horizontal input for the player movement and store it in a variable
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-
-        // if statement to face sprite to the left
-        if (horizontalInput < 0)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
+            if (topRabbit != null) spriteRenderer.sprite = topRabbit;
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            Debug.Log("Sprite has rotated left");
         }
-
-        // else, face sprite to the right
-        else if (horizontalInput > 0)
+        else if (Input.GetKeyDown(KeyCode.E))
         {
+            if (topRabbit != null) spriteRenderer.sprite = topRabbit;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (bottomRabbit != null) spriteRenderer.sprite = bottomRabbit;
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (bottomRabbit != null) spriteRenderer.sprite = bottomRabbit;
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            Debug.Log("Sprite has rotated right");
-        }  
+        }
     }
 }
