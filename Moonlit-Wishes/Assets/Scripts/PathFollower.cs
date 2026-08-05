@@ -1,10 +1,14 @@
-using Microsoft.Extensions.Logging.Abstractions;
 using UnityEngine;
 
 public class PathFollower : MonoBehaviour
 {
     public Transform[] pathPoints;
-    public float moveSpeed = 2f;
+
+    public float startingSpeed = 2f;
+
+    public float speedIncreasePerSecond = 0.05f;
+
+    public float maximumSpeed = 6f;
 
     private int currentPoint = 0;
     private bool isInitialized = false;
@@ -23,8 +27,9 @@ public class PathFollower : MonoBehaviour
 
     void Update()
     {
-
-        if (!isInitialized || pathPoints == null || pathPoints.Length == 0)
+        if (!isInitialized ||
+            pathPoints == null ||
+            pathPoints.Length == 0)
         {
             return;
         }
@@ -34,10 +39,16 @@ public class PathFollower : MonoBehaviour
             return;
         }
 
+        float currentSpeed =
+            startingSpeed +
+            Time.timeSinceLevelLoad * speedIncreasePerSecond;
+
+        currentSpeed = Mathf.Min(currentSpeed, maximumSpeed);
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             pathPoints[currentPoint].position,
-            moveSpeed * Time.deltaTime
+            currentSpeed * Time.deltaTime
         );
 
         if (Vector3.Distance(
@@ -53,9 +64,8 @@ public class PathFollower : MonoBehaviour
                 {
                     GameManager.instance.MissedMoonCake();
                 }
-                
+
                 Destroy(gameObject);
-                return;
             }
         }
     }

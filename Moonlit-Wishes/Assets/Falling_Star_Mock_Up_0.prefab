@@ -114,7 +114,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  moveSpeed: 400
+  startingSpeed: 400
+  speedIncreasePerSecond: 10
+  maximumSpeed: 20000
 --- !u!58 &2518152009802477629
 CircleCollider2D:
   m_ObjectHideFlags: 0
