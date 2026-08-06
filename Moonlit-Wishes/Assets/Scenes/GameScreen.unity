@@ -633,8 +633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cd235fe4022c14eb73fc721cac840e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  bottomRabbit: {fileID: -4650205629826567076, guid: b5127e66bf6ccde4f89740a38400056a, type: 3}
-  topRabbit: {fileID: -5211260209183852988, guid: 287206fb749da5c4db25a06018e78bea, type: 3}
+  bottomRabbit: {fileID: -2913757221721217357, guid: 7ade441efe6bd5149941571a322e80d5, type: 3}
+  topRabbit: {fileID: -8149371560367069662, guid: cd72960502dc4db4a879ab788280afde, type: 3}
 --- !u!212 &510139115
 SpriteRenderer:
   serializedVersion: 3
@@ -684,7 +684,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5370040441597182768, guid: d9af737c2c0117e4695ead1bffeca220, type: 3}
+  m_Sprite: {fileID: -8149371560367069662, guid: cd72960502dc4db4a879ab788280afde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
