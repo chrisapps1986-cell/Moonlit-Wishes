@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     public GameObject objectSpawnerLeft;
     public GameObject objectSpawnerRight;
 
+    // Main Menu UI references
+    public GameObject MainMenuUI;
+    public GameObject AboutTheGameUI;
+    public GameObject HowToPlayUI;
+
 
 
     public TMP_Text scoreText;
@@ -133,5 +138,31 @@ public class GameManager : MonoBehaviour
         objectSpawnerRight.SetActive(false);
         gameOverUI.SetActive(true);
     }
+
+    public void AboutTheGame()
+    {
+        MainMenuUI.SetActive(false);
+        AboutTheGameUI.SetActive(true);
+    }
+
+    public void BackButtonAboutTheGame()
+    {
+        AboutTheGameUI.SetActive(false);
+        MainMenuUI.SetActive(true);
+    }
+
+    public void HowToPlay()
+    {
+        MainMenuUI.SetActive(false);
+        HowToPlayUI.SetActive(true);
+    }
+
+
+    public void BackButtonHowToPlay()
+    {
+        HowToPlayUI.SetActive(false);
+        MainMenuUI.SetActive(true);
+    }
+
 
 }
