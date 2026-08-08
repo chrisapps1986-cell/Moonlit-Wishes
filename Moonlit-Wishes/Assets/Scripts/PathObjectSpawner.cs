@@ -11,6 +11,8 @@ public class PathObjectSpawner : MonoBehaviour
 
     public float minimumGapBetweenStars = 1.5f;
 
+    public float spinSpeed = 200f;
+
     private static float nextAllowedSpawnTime = 0f;
 
     void Start()
@@ -55,6 +57,14 @@ public class PathObjectSpawner : MonoBehaviour
         if (pathFollower != null)
         {
             pathFollower.SetupPath(pathPoints);
+        }
+
+        Rigidbody2D rb =
+            newStar.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            rb.angularVelocity = spinSpeed;
         }
     }
 }
