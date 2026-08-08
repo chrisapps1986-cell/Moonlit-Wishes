@@ -1598,10 +1598,10 @@ MonoBehaviour:
   - {fileID: 463871993}
   minimumSpawnDelay: 0.5
   maximumSpawnDelay: 2.5
-  minimumGapBetweenStars: 2.5
+  minimumGapBetweenStars: 2
   spinSpeed: -200
-  spawnRateIncrease: 0.1
-  fastestMinimumDelay: 0.3
+  spawnRateIncrease: 0.08
+  fastestMinimumDelay: 0.5
   fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
 --- !u!4 &705600461
@@ -2408,10 +2408,10 @@ MonoBehaviour:
   - {fileID: 1430942291}
   minimumSpawnDelay: 0.5
   maximumSpawnDelay: 2.5
-  minimumGapBetweenStars: 2.5
+  minimumGapBetweenStars: 2
   spinSpeed: 200
-  spawnRateIncrease: 0.1
-  fastestMinimumDelay: 0.3
+  spawnRateIncrease: 0.08
+  fastestMinimumDelay: 0.5
   fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
 --- !u!4 &1149254556
@@ -3123,12 +3123,12 @@ MonoBehaviour:
   - {fileID: 742659409}
   minimumSpawnDelay: 0.5
   maximumSpawnDelay: 2.5
-  minimumGapBetweenStars: 2.5
+  minimumGapBetweenStars: 2
   spinSpeed: -200
-  spawnRateIncrease: 0.1
-  fastestMinimumDelay: 0.3
+  spawnRateIncrease: 0.08
+  fastestMinimumDelay: 0.5
   fastestMaximumDelay: 0.8
-  smallestGapBetweenStars: 0.5
+  smallestGapBetweenStars: 0.8
 --- !u!4 &1674209535
 Transform:
   m_ObjectHideFlags: 0
@@ -3701,12 +3701,12 @@ MonoBehaviour:
   - {fileID: 716867364}
   minimumSpawnDelay: 0.5
   maximumSpawnDelay: 2.5
-  minimumGapBetweenStars: 2.5
+  minimumGapBetweenStars: 2
   spinSpeed: 200
-  spawnRateIncrease: 0.1
-  fastestMinimumDelay: 0.3
+  spawnRateIncrease: 0.08
+  fastestMinimumDelay: 0.5
   fastestMaximumDelay: 0.8
-  smallestGapBetweenStars: 0.5
+  smallestGapBetweenStars: 0.8
 --- !u!4 &1928463058
 Transform:
   m_ObjectHideFlags: 0

@@ -13,10 +13,8 @@ public class PathObjectSpawner : MonoBehaviour
 
     public float spinSpeed = 200f;
 
-    // NEW - controls how quickly spawning speeds up
     public float spawnRateIncrease = 0.02f;
 
-    // NEW - prevents spawning from becoming too fast
     public float fastestMinimumDelay = 0.3f;
     public float fastestMaximumDelay = 0.8f;
     public float smallestGapBetweenStars = 0.5f;
@@ -39,9 +37,9 @@ public class PathObjectSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(randomDelay);
 
-            while (Time.time < nextAllowedSpawnTime)
+            if (Time.time < nextAllowedSpawnTime)
             {
-                yield return null;
+                continue;
             }
 
             SpawnStar();
@@ -49,12 +47,10 @@ public class PathObjectSpawner : MonoBehaviour
             nextAllowedSpawnTime =
                 Time.time + minimumGapBetweenStars;
 
-            // gradually increase the spawn rate
             minimumSpawnDelay -= spawnRateIncrease;
             maximumSpawnDelay -= spawnRateIncrease;
             minimumGapBetweenStars -= spawnRateIncrease;
 
-            // stop the spawn rate getting too fast
             minimumSpawnDelay =
                 Mathf.Max(minimumSpawnDelay, fastestMinimumDelay);
 
