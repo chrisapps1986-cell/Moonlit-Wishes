@@ -1600,7 +1600,7 @@ MonoBehaviour:
   maximumSpawnDelay: 2.5
   minimumGapBetweenStars: 2.5
   spinSpeed: -200
-  spawnRateIncrease: 0.02
+  spawnRateIncrease: 0.1
   fastestMinimumDelay: 0.3
   fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
@@ -2410,7 +2410,7 @@ MonoBehaviour:
   maximumSpawnDelay: 2.5
   minimumGapBetweenStars: 2.5
   spinSpeed: 200
-  spawnRateIncrease: 0.02
+  spawnRateIncrease: 0.1
   fastestMinimumDelay: 0.3
   fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
@@ -3125,7 +3125,7 @@ MonoBehaviour:
   maximumSpawnDelay: 2.5
   minimumGapBetweenStars: 2.5
   spinSpeed: -200
-  spawnRateIncrease: 0.02
+  spawnRateIncrease: 0.1
   fastestMinimumDelay: 0.3
   fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
@@ -3703,7 +3703,7 @@ MonoBehaviour:
   maximumSpawnDelay: 2.5
   minimumGapBetweenStars: 2.5
   spinSpeed: 200
-  spawnRateIncrease: 0.02
+  spawnRateIncrease: 0.1
   fastestMinimumDelay: 0.3
   fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
