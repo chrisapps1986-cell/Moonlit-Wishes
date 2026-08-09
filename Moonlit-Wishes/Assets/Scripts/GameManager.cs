@@ -130,6 +130,11 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
+    public void ExitBackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void GameOver()
     {
         MainUI.SetActive(false);
