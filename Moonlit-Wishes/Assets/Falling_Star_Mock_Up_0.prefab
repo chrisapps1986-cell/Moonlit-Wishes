@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4025227469574226180, guid: 409fcc59fc0283f47829356ee1a852d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,7 +115,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   startingSpeed: 400
-  speedIncreasePerSecond: 10
+  speedIncreasePerSecond: 3
   maximumSpeed: 20000
 --- !u!58 &2518152009802477629
 CircleCollider2D:
