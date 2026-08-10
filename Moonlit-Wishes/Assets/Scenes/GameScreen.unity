@@ -956,12 +956,12 @@ GameObject:
   - component: {fileID: 341011798}
   - component: {fileID: 341011797}
   m_Layer: 0
-  m_Name: Goddess_Mock_Up_0
+  m_Name: MoonGoddess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &341011797
 SpriteRenderer:
   serializedVersion: 3
@@ -3606,6 +3606,7 @@ MonoBehaviour:
   score: 0
   maxLives: 3
   currentLives: 0
+  waitForGoddessDespawn: 5
   healthBar: {fileID: 1443556377}
   MainUI: {fileID: 18728570}
   player: {fileID: 510139113}
@@ -3615,6 +3616,7 @@ MonoBehaviour:
   MainMenuUI: {fileID: 0}
   AboutTheGameUI: {fileID: 0}
   HowToPlayUI: {fileID: 0}
+  MoonGoddess: {fileID: 341011796}
   scoreText: {fileID: 850452524}
 --- !u!4 &1873661591
 Transform:

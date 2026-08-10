@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int maxLives = 3;
     public int currentLives;
+    public float waitForGoddessDespawn = 10f;
     public HealthBar healthBar;
     public GameObject MainUI;
     public GameObject player;
@@ -20,6 +22,9 @@ public class GameManager : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject AboutTheGameUI;
     public GameObject HowToPlayUI;
+
+    // Moon Goddess reference
+    public GameObject MoonGoddess;
 
 
 
@@ -86,9 +91,15 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("" + score);
 
-        if (score >= 100 && !moonGoddessHeal)
+        if (score % 100 == 0 && !moonGoddessHeal)
         {
             FillHealth();
+            GoddessAppear();
+        }
+        else
+        {
+            moonGoddessHeal = false;
+            StartCoroutine(WaitGoddessDissapear());
         }
     }
 
@@ -102,6 +113,22 @@ public class GameManager : MonoBehaviour
             healthBar.UpdateMoonCakesUI(currentLives);
         }
         
+    }
+
+    private void GoddessAppear()
+    {
+        MoonGoddess.SetActive(true);
+    }
+
+    IEnumerator WaitGoddessDissapear()
+    {
+        yield return new WaitForSeconds(waitForGoddessDespawn);
+        GoddessDissapear();
+    }
+
+    private void GoddessDissapear()
+    {
+        MoonGoddess.SetActive(false);
     }
 
 
