@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int maxLives = 3;
     public int currentLives;
-    public float waitForGoddessDespawn = 10f;
+    public float waitForGoddessDespawn = 5f;
     public HealthBar healthBar;
     public GameObject MainUI;
     public GameObject player;
@@ -77,6 +77,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (currentLives == 1)
+        {
+            GoddessAppear();
+        }
+
         if (currentLives <= 0)
         {
             GameOver();
@@ -94,12 +99,11 @@ public class GameManager : MonoBehaviour
         if (score % 100 == 0 && !moonGoddessHeal)
         {
             FillHealth();
-            GoddessAppear();
+            StartCoroutine(WaitGoddessDissapear());
         }
         else
         {
             moonGoddessHeal = false;
-            StartCoroutine(WaitGoddessDissapear());
         }
     }
 
