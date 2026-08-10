@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         if (score % 100 == 0 && !moonGoddessHeal)
         {
             FillHealth();
+            GoddessAppear();
             StartCoroutine(WaitGoddessDissapear());
         }
         else
