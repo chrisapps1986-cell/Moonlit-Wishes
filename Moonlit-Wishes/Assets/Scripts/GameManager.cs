@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Missed star sound
     public AudioSource audioSource;
     public AudioClip missedSound;
+    public AudioClip moonGoddessSound;
 
     // Main Menu UI references
     public GameObject MainMenuUI;
@@ -111,6 +112,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayMoonGoddessSound()
+    {
+        if (audioSource != null && moonGoddessSound != null)
+        {
+            audioSource.PlayOneShot(moonGoddessSound);
+        }
+    }
+
+
 
     public void AddScore(int amount)
     {
@@ -126,6 +136,7 @@ public class GameManager : MonoBehaviour
             FillHealth();
 
             GoddessAppear();
+            PlayMoonGoddessSound();
 
             StartCoroutine(WaitGoddessDissapear());
         }

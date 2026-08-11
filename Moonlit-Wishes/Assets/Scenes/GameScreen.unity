@@ -3950,6 +3950,7 @@ MonoBehaviour:
   objectSpawnerRight: {fileID: 1928463056}
   audioSource: {fileID: 1873661592}
   missedSound: {fileID: 8300000, guid: 698b31c8fc263354d83035ddeca79a38, type: 3}
+  moonGoddessSound: {fileID: 8300000, guid: 37e2e9489a78065478c21d36bc257555, type: 3}
   MainMenuUI: {fileID: 0}
   AboutTheGameUI: {fileID: 0}
   HowToPlayUI: {fileID: 0}
