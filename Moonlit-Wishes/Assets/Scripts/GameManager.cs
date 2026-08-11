@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject MainMenuUI;
     public GameObject AboutTheGameUI;
     public GameObject HowToPlayUI;
+    public GameObject CreditsUI;
 
     // Moon Goddess reference
     public GameObject MoonGoddess;
@@ -255,6 +256,20 @@ public class GameManager : MonoBehaviour
     public void BackButtonAboutTheGame()
     {
         AboutTheGameUI.SetActive(false);
+
+        MainMenuUI.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        MainMenuUI.SetActive(false);
+
+        CreditsUI.SetActive(true);
+    }
+
+    public void BackButtonCredits()
+    {
+        CreditsUI.SetActive(false);
 
         MainMenuUI.SetActive(true);
     }
