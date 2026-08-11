@@ -6,6 +6,8 @@ public class PathObjectSpawner : MonoBehaviour
     public GameObject objectPrefab;
     public Transform[] pathPoints;
 
+    public GameObject spawnSparkleEffect;
+
     public float minimumSpawnDelay = 1f;
     public float maximumSpawnDelay = 3f;
 
@@ -69,6 +71,17 @@ public class PathObjectSpawner : MonoBehaviour
             pathPoints[0].position,
             Quaternion.identity
         );
+
+        if (spawnSparkleEffect != null)
+        {
+            GameObject sparkle = Instantiate(
+                spawnSparkleEffect,
+                newStar.transform.position,
+                Quaternion.identity
+            );
+
+            Destroy(sparkle, 1f);
+        }
 
         PathFollower pathFollower =
             newStar.GetComponent<PathFollower>();

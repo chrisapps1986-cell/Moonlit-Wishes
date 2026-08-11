@@ -5,18 +5,25 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    
     // References
     public int score = 0;
     public int maxLives = 3;
     public int currentLives;
+
     public float waitForGoddessDespawn = 5f;
+
     public HealthBar healthBar;
+
     public GameObject MainUI;
     public GameObject player;
     public GameObject gameOverUI;
+
     public GameObject objectSpawnerLeft;
     public GameObject objectSpawnerRight;
+
+    // Missed star sound
+    public AudioSource audioSource;
+    public AudioClip missedSound;
 
     // Main Menu UI references
     public GameObject MainMenuUI;
@@ -26,33 +33,33 @@ public class GameManager : MonoBehaviour
     // Moon Goddess reference
     public GameObject MoonGoddess;
 
-
-
     public TMP_Text scoreText;
 
-    // A boolean to track when the player reaches a score of 100
+    // Tracks the health refill
     private bool moonGoddessHeal = false;
 
-      // We create a static instance of the game manager that can be accessed by any script from anywhere
+    // Allows other scripts to access the GameManager
     public static GameManager instance;
 
-        void Awake()
+
+    void Awake()
     {
         // Has a GameManager been created yet?
-        if(instance == null)
+        if (instance == null)
         {
-            // This is the first game manager, store a reference to it
+            // This is the first GameManager
             instance = this;
 
-            // Keep this game object alive throughout the life of the game
+            // Keep it alive between scenes
             DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            // If a game manager already exists, then destroy this
-            // Destroy(this.gameObject);
+            // Replace the old GameManager
             Destroy(instance.gameObject);
+
             instance = this;
+
             DontDestroyOnLoad(this.gameObject);
         }
     }
@@ -60,13 +67,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // Make sure the game is running normally
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
         UpdateScoreText();
+
         currentLives = maxLives;
     }
 
+
     public void MissedMoonCake()
     {
-
         if (currentLives > 0)
         {
             currentLives--;
@@ -77,16 +89,28 @@ public class GameManager : MonoBehaviour
             }
         }
 
+
         if (currentLives == 1)
         {
             GoddessAppear();
         }
+
 
         if (currentLives <= 0)
         {
             GameOver();
         }
     }
+
+
+    public void PlayMissedSound()
+    {
+        if (audioSource != null && missedSound != null)
+        {
+            audioSource.PlayOneShot(missedSound);
+        }
+    }
+
 
     public void AddScore(int amount)
     {
@@ -96,10 +120,13 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("" + score);
 
+
         if (score % 100 == 0 && !moonGoddessHeal)
         {
             FillHealth();
+
             GoddessAppear();
+
             StartCoroutine(WaitGoddessDissapear());
         }
         else
@@ -108,28 +135,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     private void FillHealth()
     {
         moonGoddessHeal = true;
+
         currentLives = maxLives;
+
 
         if (healthBar != null)
         {
             healthBar.UpdateMoonCakesUI(currentLives);
         }
-        
     }
+
 
     private void GoddessAppear()
     {
         MoonGoddess.SetActive(true);
     }
 
+
     IEnumerator WaitGoddessDissapear()
     {
         yield return new WaitForSeconds(waitForGoddessDespawn);
+
         GoddessDissapear();
     }
+
 
     private void GoddessDissapear()
     {
@@ -145,13 +178,23 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
         SceneManager.LoadScene(1);
     }
 
+
     public void RestartLevel()
     {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().buildIndex
+        );
     }
+
 
     public void ExitGame()
     {
@@ -162,35 +205,54 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
+
     public void ExitBackToMenu()
     {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
         SceneManager.LoadScene(0);
     }
+
 
     public void GameOver()
     {
         MainUI.SetActive(false);
+
         player.SetActive(false);
+
         objectSpawnerLeft.SetActive(false);
         objectSpawnerRight.SetActive(false);
+
         gameOverUI.SetActive(true);
+
+
+        Time.timeScale = 0f;
+
+        AudioListener.pause = true;
     }
+
 
     public void AboutTheGame()
     {
         MainMenuUI.SetActive(false);
+
         AboutTheGameUI.SetActive(true);
     }
+
 
     public void BackButtonAboutTheGame()
     {
         AboutTheGameUI.SetActive(false);
+
         MainMenuUI.SetActive(true);
     }
+
 
     public void HowToPlay()
     {
         MainMenuUI.SetActive(false);
+
         HowToPlayUI.SetActive(true);
     }
 
@@ -198,8 +260,7 @@ public class GameManager : MonoBehaviour
     public void BackButtonHowToPlay()
     {
         HowToPlayUI.SetActive(false);
+
         MainMenuUI.SetActive(true);
     }
-
-
 }

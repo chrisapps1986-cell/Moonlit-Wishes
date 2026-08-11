@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2333206371310430892}
   - component: {fileID: 2518152009802477629}
   - component: {fileID: 6606023224806531972}
-  - component: {fileID: 8778641672460567042}
   m_Layer: 0
   m_Name: Falling_Star_Mock_Up_0
   m_TagString: Star
@@ -118,6 +117,7 @@ MonoBehaviour:
   startingSpeed: 400
   speedIncreasePerSecond: 3
   maximumSpeed: 20000
+  missedSparkleEffect: {fileID: 3769776507192105038, guid: 8aa724af74fef2f4b94577ede3996aac, type: 3}
 --- !u!58 &2518152009802477629
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -181,16 +181,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8778641672460567042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8742707391928326864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafcee87cbe02794cbd47b046a190520, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StarCollisionEffect
-  sparkleEffect: {fileID: 3769776507192105038, guid: 3fd515c0b6f5bed489d585f10bc53905, type: 3}

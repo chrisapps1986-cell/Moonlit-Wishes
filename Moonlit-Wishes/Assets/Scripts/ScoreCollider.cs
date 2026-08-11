@@ -4,6 +4,9 @@ public class ScoreCollider : MonoBehaviour
 {
     public GameManager gameManager;
 
+    public AudioSource audioSource;
+    public AudioClip caughtSound;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Rabbit detected: " + other.gameObject.name);
@@ -13,6 +16,12 @@ public class ScoreCollider : MonoBehaviour
             Debug.Log("Star caught!");
 
             gameManager.AddScore(1);
+
+            if (audioSource != null && caughtSound != null)
+            {
+                audioSource.PlayOneShot(caughtSound);
+            }
+
             Destroy(other.gameObject);
         }
     }
