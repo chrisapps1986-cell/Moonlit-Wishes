@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("" + score);
 
 
-        if (score % 10 == 0 && !moonGoddessHeal)
+        if (score % 100 == 0 && !moonGoddessHeal)
         {
             FillHealth();
 
