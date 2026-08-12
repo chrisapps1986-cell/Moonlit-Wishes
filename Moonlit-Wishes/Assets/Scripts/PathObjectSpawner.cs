@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PathObjectSpawner : MonoBehaviour
@@ -21,12 +22,18 @@ public class PathObjectSpawner : MonoBehaviour
     public float fastestMaximumDelay = 0.8f;
     public float smallestGapBetweenStars = 0.5f;
 
+    public int maximumActiveStars = 2;
+
+    private List<GameObject> activeStars = new List<GameObject>();
+
     private static float nextAllowedSpawnTime = 0f;
+
 
     void Start()
     {
         StartCoroutine(SpawnLoop());
     }
+
 
     IEnumerator SpawnLoop()
     {
@@ -39,30 +46,54 @@ public class PathObjectSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(randomDelay);
 
+
+            activeStars.RemoveAll(star => star == null);
+
+
+            if (activeStars.Count >= maximumActiveStars)
+            {
+                continue;
+            }
+
+
             if (Time.time < nextAllowedSpawnTime)
             {
                 continue;
             }
 
+
             SpawnStar();
+
 
             nextAllowedSpawnTime =
                 Time.time + minimumGapBetweenStars;
+
 
             minimumSpawnDelay -= spawnRateIncrease;
             maximumSpawnDelay -= spawnRateIncrease;
             minimumGapBetweenStars -= spawnRateIncrease;
 
+
             minimumSpawnDelay =
-                Mathf.Max(minimumSpawnDelay, fastestMinimumDelay);
+                Mathf.Max(
+                    minimumSpawnDelay,
+                    fastestMinimumDelay
+                );
 
             maximumSpawnDelay =
-                Mathf.Max(maximumSpawnDelay, fastestMaximumDelay);
+                Mathf.Max(
+                    maximumSpawnDelay,
+                    fastestMaximumDelay
+                );
 
             minimumGapBetweenStars =
-                Mathf.Max(minimumGapBetweenStars, smallestGapBetweenStars);
+                Mathf.Max(
+                    minimumGapBetweenStars,
+                    smallestGapBetweenStars
+                );
         }
     }
+
 
     void SpawnStar()
     {
@@ -71,6 +102,10 @@ public class PathObjectSpawner : MonoBehaviour
             pathPoints[0].position,
             Quaternion.identity
         );
+
+
+        activeStars.Add(newStar);
+
 
         if (spawnSparkleEffect != null)
         {
@@ -83,6 +118,7 @@ public class PathObjectSpawner : MonoBehaviour
             Destroy(sparkle, 1f);
         }
 
+
         PathFollower pathFollower =
             newStar.GetComponent<PathFollower>();
 
@@ -90,6 +126,7 @@ public class PathObjectSpawner : MonoBehaviour
         {
             pathFollower.SetupPath(pathPoints);
         }
+
 
         Rigidbody2D rb =
             newStar.GetComponent<Rigidbody2D>();
