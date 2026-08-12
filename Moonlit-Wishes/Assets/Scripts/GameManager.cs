@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     // Allows other scripts to access the GameManager
     public static GameManager instance;
 
+    [SerializeField] private MoonGoddess moonGoddess;
+
 
     void Awake()
     {
@@ -132,13 +134,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("" + score);
 
 
-        if (score % 100 == 0 && !moonGoddessHeal)
+        if (score % 10 == 0 && !moonGoddessHeal)
         {
             FillHealth();
 
             GoddessAppear();
             PlayMoonGoddessSound();
-
+            moonGoddess.MoonGoddessParticleAffect();
             StartCoroutine(WaitGoddessDissapear());
         }
         else

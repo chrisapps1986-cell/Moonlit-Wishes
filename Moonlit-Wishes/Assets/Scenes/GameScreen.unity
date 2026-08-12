@@ -2501,6 +2501,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926170895}
   m_CullTransparentMesh: 1
+--- !u!1 &1011443467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011443469}
+  - component: {fileID: 1011443468}
+  m_Layer: 0
+  m_Name: MoonGoddessSparkleLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1011443468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011443467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9700f4d115fd634fa4a1f3cd9272631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoonGoddess
+  goddessHealEffect: {fileID: 5491468924161663492, guid: a1b73d646348fe548a3172dfa245d428, type: 3}
+--- !u!4 &1011443469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011443467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1619, y: 1296, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027949070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,8 +3999,10 @@ MonoBehaviour:
   MainMenuUI: {fileID: 0}
   AboutTheGameUI: {fileID: 0}
   HowToPlayUI: {fileID: 0}
+  CreditsUI: {fileID: 0}
   MoonGoddess: {fileID: 341011796}
   scoreText: {fileID: 850452524}
+  moonGoddess: {fileID: 1011443468}
 --- !u!4 &1873661591
 Transform:
   m_ObjectHideFlags: 0
@@ -3965,7 +4012,7 @@ Transform:
   m_GameObject: {fileID: 1873661589}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102.95272, y: 263.7014, z: 0}
+  m_LocalPosition: {x: -1638, y: 1313, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4367,5 +4414,6 @@ SceneRoots:
   - {fileID: 1674209535}
   - {fileID: 705600461}
   - {fileID: 341011798}
+  - {fileID: 1011443469}
   - {fileID: 335849599}
   - {fileID: 903649450}
