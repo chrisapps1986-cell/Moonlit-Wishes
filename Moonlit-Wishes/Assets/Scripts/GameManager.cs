@@ -5,7 +5,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    // References
     public int score = 0;
     public int maxLives = 3;
     public int currentLives;
@@ -25,8 +24,8 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip missedSound;
     public AudioClip moonGoddessSound;
+    public AudioSource gameOverMusic;
 
-    // Main Menu UI references
     public GameObject MainMenuUI;
     public GameObject AboutTheGameUI;
     public GameObject HowToPlayUI;
@@ -240,6 +239,12 @@ public class GameManager : MonoBehaviour
 
         gameOverUI.SetActive(true);
 
+        // Play the Game Over music
+        if (gameOverMusic != null)
+        {
+            gameOverMusic.ignoreListenerPause = true;
+            gameOverMusic.Play();
+        }
 
         Time.timeScale = 0f;
 
