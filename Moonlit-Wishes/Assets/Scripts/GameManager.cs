@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject MainUI;
     public GameObject player;
     public GameObject gameOverUI;
+    public GameObject gameWinUI;
 
     public GameObject objectSpawnerLeft;
     public GameObject objectSpawnerRight;
@@ -146,6 +147,11 @@ public class GameManager : MonoBehaviour
         {
             moonGoddessHeal = false;
         }
+
+        if (score % 999 == 0)
+        {
+            WinGameScreen(); 
+        }
     }
 
 
@@ -245,6 +251,23 @@ public class GameManager : MonoBehaviour
             gameOverMusic.ignoreListenerPause = true;
             gameOverMusic.Play();
         }
+
+        Time.timeScale = 0f;
+
+        AudioListener.pause = true;
+    }
+
+    public void WinGameScreen()
+    {
+        MainUI.SetActive(false);
+
+        player.SetActive(false);
+
+        objectSpawnerLeft.SetActive(false);
+        objectSpawnerRight.SetActive(false);
+
+        gameWinUI.SetActive(true);
+
 
         Time.timeScale = 0f;
 
