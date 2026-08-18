@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject gameOverUI;
     public GameObject gameWinUI;
+    public AudioSource gameWinMusic;
 
     public GameObject objectSpawnerLeft;
     public GameObject objectSpawnerRight;
@@ -268,6 +269,12 @@ public class GameManager : MonoBehaviour
 
         gameWinUI.SetActive(true);
 
+        // Play the Game Win music
+        if (gameWinMusic != null)
+        {
+            gameWinMusic.ignoreListenerPause = true;
+            gameWinMusic.Play();
+        }
 
         Time.timeScale = 0f;
 
