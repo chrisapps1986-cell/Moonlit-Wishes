@@ -1814,8 +1814,8 @@ MonoBehaviour:
   minimumGapBetweenStars: 1.5
   spinSpeed: -200
   spawnRateIncrease: 0.03
-  fastestMinimumDelay: 0.5
-  fastestMaximumDelay: 0.5
+  fastestMinimumDelay: 0.4
+  fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
   maximumActiveStars: 1
 --- !u!4 &705600461
@@ -2898,8 +2898,8 @@ MonoBehaviour:
   minimumGapBetweenStars: 1.5
   spinSpeed: 200
   spawnRateIncrease: 0.03
-  fastestMinimumDelay: 0.5
-  fastestMaximumDelay: 0.5
+  fastestMinimumDelay: 0.4
+  fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
   maximumActiveStars: 1
 --- !u!4 &1149254556
@@ -4082,13 +4082,13 @@ MonoBehaviour:
   - {fileID: 1413208700}
   - {fileID: 742659409}
   spawnSparkleEffect: {fileID: 3769776507192105038, guid: 3fd515c0b6f5bed489d585f10bc53905, type: 3}
-  minimumSpawnDelay: 2
-  maximumSpawnDelay: 1.5
+  minimumSpawnDelay: 1.5
+  maximumSpawnDelay: 2.5
   minimumGapBetweenStars: 1.5
   spinSpeed: -200
   spawnRateIncrease: 0.03
-  fastestMinimumDelay: 0.5
-  fastestMaximumDelay: 0.5
+  fastestMinimumDelay: 0.4
+  fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
   maximumActiveStars: 1
 --- !u!4 &1674209535
@@ -4575,7 +4575,7 @@ MonoBehaviour:
   player: {fileID: 510139113}
   gameOverUI: {fileID: 1709671841}
   gameWinUI: {fileID: 1236165340}
-  gameWinMusic: {fileID: 0}
+  gameWinMusic: {fileID: 766177082}
   objectSpawnerLeft: {fileID: 1674209533}
   objectSpawnerRight: {fileID: 1928463056}
   audioSource: {fileID: 1873661592}
@@ -4845,13 +4845,13 @@ MonoBehaviour:
   - {fileID: 1822463013}
   - {fileID: 716867364}
   spawnSparkleEffect: {fileID: 3769776507192105038, guid: 3fd515c0b6f5bed489d585f10bc53905, type: 3}
-  minimumSpawnDelay: 2.5
-  maximumSpawnDelay: 1.7
+  minimumSpawnDelay: 1.7
+  maximumSpawnDelay: 2.7
   minimumGapBetweenStars: 1.5
   spinSpeed: 200
   spawnRateIncrease: 0.03
-  fastestMinimumDelay: 0.5
-  fastestMaximumDelay: 0.5
+  fastestMinimumDelay: 0.4
+  fastestMaximumDelay: 0.8
   smallestGapBetweenStars: 0.5
   maximumActiveStars: 1
 --- !u!4 &1928463058
